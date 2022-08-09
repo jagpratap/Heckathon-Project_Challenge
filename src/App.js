@@ -1,8 +1,9 @@
 import { StrictMode } from "react";
+import Router from "./routes";
 
 const App = () => (
   <StrictMode>
-    App
+    <Router />
   </StrictMode>
 );
 
