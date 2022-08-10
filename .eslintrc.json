@@ -71,6 +71,7 @@
       }
     ],
     "react/jsx-props-no-spreading": "off"
+    // "react/prop-types": "off"
   }
 }
 // "off" or 0 - turn the rule off

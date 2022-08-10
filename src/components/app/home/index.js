@@ -1,5 +1,7 @@
+import { Button } from "antd";
+
 const Home = () => (
-  <div>Home</div>
+  <Button type="primary">Primary Button</Button>
 );
 
 export default Home;
