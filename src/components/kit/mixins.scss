@@ -1,3 +1,4 @@
+/* Font Families */
 $poppins-font-weight-900: "Poppins, Black";
 $poppins-font-weight-800: "Poppins, Extra-Bold";
 $poppins-font-weight-700: "Poppins, Bold";
@@ -8,16 +9,23 @@ $poppins-font-weight-300: "Poppins, Light";
 $poppins-font-weight-200: "Poppins, Extra-Light";
 $poppins-font-weight-100: "Poppins, Thin";
 
+/* Font Sizes */
 $font-size-xxs: 0.625rem; // 10px
 $font-size-xs: 0.75rem; // 12px
 $font-size-sm: 0.875rem; // 14px
 $font-size-base: 1rem; // 16px
 $font-size-lg: 1.125rem; // 18px
-$font-size-xl: 1.5rem; // 24px
+$font-size-xl: 1.25rem; // 20px
+$font-size-xxl: 1.375rem; // 22px
 
+/* Layouts Breakpoints */
 $breakpoints: (
+  // 320px
+  xxs: 20rem,
   // 480px
-  sm: 30rem,
+  xs: 30rem,
+  // 640px
+  sm: 40rem,
   // 768px
   md: 48rem,
   // 1024px
@@ -27,6 +35,18 @@ $breakpoints: (
   // 1536px
   xxl: 96rem,
 );
+
+@mixin mobile {
+  @media (min-width: map-get($dse-breakpoints, "xxs")) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (min-width: map-get($dse-breakpoints, "xs")) {
+    @content;
+  }
+}
 
 @mixin mobile {
   @media (min-width: map-get($dse-breakpoints, "sm")) {
