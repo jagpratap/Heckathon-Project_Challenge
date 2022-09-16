@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import PropTypes from "prop-types";
 
 // LAYOUT WRAPPER
 import ProtectedLayout from "./protected";
@@ -30,10 +29,6 @@ const Layout = ({ children }) => {
       </Wrapper>
     </>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;
