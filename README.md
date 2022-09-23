@@ -1,2 +1,2 @@
 # React Boiler Plate
-Supporting routing with eslint and sass integration
+Supports routing with eslint and sass integration
