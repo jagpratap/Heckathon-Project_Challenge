@@ -8,3 +8,8 @@ body {
   font-family: $poppins-font-weight-400;
   font-size: $font-size-base;
 }
+
+.container {
+  max-width: 87.5vw;
+  margin: 0 auto;
+}
