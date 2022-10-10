@@ -94,3 +94,51 @@
     }
   }
 }
+
+.features_section {
+  background-color: #FFFFFF;
+  margin: 5.625rem 0 7.8125rem;
+
+  .section_content {
+    padding: 0 4.375rem;
+
+    .content_title {
+      font-family: $poppins-font-weight-600;
+      font-size: 2rem;
+      line-height: 1.25rem;
+      text-align: center;
+      margin-bottom: 4.5rem;
+
+      span {
+        color: #44924C;
+      }
+    }
+
+    .content_grid {
+      display: grid;
+      grid-template-columns: 33.875rem 33.875rem;
+      gap: 2.25rem;
+
+      .grid_card {
+        background-color: #F8F9FD;
+        padding: 3.875rem 1.875rem;
+        border-radius: 1.25rem;
+
+        .title {
+          font-family: $poppins-font-weight-600;
+          font-size: 1.5rem;
+          line-height: 3.125rem;
+          letter-spacing: -0.03rem;
+        }
+
+        .desc {
+          font-family: $poppins-font-weight-500;
+          font-size: 1rem;
+          line-height: 1.5rem;
+          letter-spacing: -0.02rem;
+          color: #64607D;
+        }
+      }
+    }
+  }
+}
