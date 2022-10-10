@@ -1,15 +1,72 @@
-* {
-  margin: 0;
-  padding: 0;
+/************* Initial CSS Resets *************/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+/* Remove default margin/padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
 body {
-  font-family: $poppins-font-weight-400;
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/************* Initial CSS Resets *************/
+
+
+body {
+  font-family: $poppins-font-weight-400, Verdana, Geneva, Tahoma, sans-serif;
   font-size: $font-size-base;
 }
 
 .container {
   max-width: 87.5vw;
   margin: 0 auto;
+}
+
+button {
+  border: none;
+  cursor: pointer;
 }
