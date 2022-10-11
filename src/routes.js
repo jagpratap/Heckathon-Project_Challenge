@@ -8,6 +8,7 @@ import {
 import Layout from "./layouts";
 
 import Home from "./pages/home";
+import Form from "./pages/form";
 
 const routes = [
   {
@@ -15,6 +16,12 @@ const routes = [
     path: "/home",
     exact: true,
     component: Home,
+  },
+  {
+    key: "FORM",
+    path: "/form",
+    exact: true,
+    component: Form,
   },
 ];
 

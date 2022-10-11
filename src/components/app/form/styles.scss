@@ -1,0 +1,122 @@
+.form_section {
+  .section_heading {
+    background-color: #F8F9FD;
+    padding: 2.5rem 0;
+
+    h1 {
+      font-family: $inter-font-weight-700;
+      font-size: 1.5rem;
+      line-height: 1.75rem;
+    }
+  }
+
+  .section_form {
+    padding: 2rem 0 4.25rem;
+
+    .form_inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 2.125rem;
+      margin-bottom: 2.75rem;
+
+      .form_input {
+        label {
+          display: flex;
+          flex-direction: column;
+          gap: 1.25rem;
+          font-family: $inter-font-weight-500;
+          font-size: 1rem;
+          line-height: 1.25rem;
+          color: #333333;
+
+          input {
+            border: 1px solid #B7B7B7;
+            border-radius: 0.3125rem;
+            width: 28rem;
+            padding: 0.625rem 1.25rem;
+          }
+
+          // input[type="date"] {}
+        }
+      }
+    }
+
+    .form_textarea {
+      margin-bottom: 2.75rem;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        font-family: $inter-font-weight-500;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        color: #333333;
+
+        textarea {
+          border: 1px solid #B7B7B7;
+          border-radius: 0.3125rem;
+          width: 51rem;
+          height: 15.75rem;
+          padding: 1.25rem;
+        }
+      }
+    }
+
+    .form_upload {
+      margin-bottom: 2.75rem;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        font-family: $inter-font-weight-500;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        color: #333333;
+
+        input {
+          cursor: pointer;
+          width: 14.75rem;
+          border: 1px solid #D9D9D9;
+          background-color: #F4F4F4;
+          border-radius: 0.3125rem;
+          padding: 0.8125rem 1.25rem;
+        }
+      }
+    }
+
+    .form_select {
+      margin-bottom: 3.5rem;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        font-family: $inter-font-weight-500;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        color: #333333;
+
+        select {
+          cursor: pointer;
+          width: 14.75rem;
+          border: 1px solid #D9D9D9;
+          background-color: #FFFFFF;
+          border-radius: 0.3125rem;
+          padding: 0.625rem 1.25rem;
+        }
+      }
+    }
+
+    .form_button {
+      padding: 0.75rem 2rem;
+      border-radius: 0.625rem;
+      background-color: #44924C;
+      font-family: $inter-font-weight-500;
+      font-size: 1.125rem;
+      line-height: 1.25rem;
+      color: #FFFFFF;
+    }
+  }
+}

@@ -1,7 +1,7 @@
-import Challenges from "./challenges-section";
-import Features from "./features-section";
-import Hero from "./hero-section";
-import Statistics from "./statistics-section";
+import Challenges from "./challenges";
+import Features from "./features";
+import Hero from "./hero";
+import Statistics from "./statistics";
 
 const Home = () => (
   <main>
