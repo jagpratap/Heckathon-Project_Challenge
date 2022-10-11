@@ -52,6 +52,65 @@ const features = [
   },
 ];
 
+const challenges = [
+  {
+    id: 1,
+    image: "./assets/images/card-images/card_1.png",
+    tag: "Upcoming",
+    title: "Data Science Bootcamp - Graded Datathon",
+    state: "Starts in",
+    days: "00",
+    hours: "15",
+    mins: "22",
+  },
+  {
+    id: 2,
+    image: "./assets/images/card-images/card_2.png",
+    tag: "Upcoming",
+    title: "Data Sprint 72 - Butterfly Identification",
+    state: "Starts in",
+    days: "00",
+    hours: "12",
+    mins: "34",
+  },
+  {
+    id: 3,
+    image: "./assets/images/card-images/card_3.png",
+    tag: "Active",
+    title: "Data Sprint 71 - Weather Recognition",
+    state: "Ends in",
+    days: "01",
+    hours: "17",
+    mins: "10",
+  },
+  {
+    id: 4,
+    image: "./assets/images/card-images/card_4.png",
+    tag: "Active",
+    title: "Data Sprint 70-Airline Passenger Satisfaction",
+    state: "Ends in",
+    days: "00",
+    hours: "11",
+    mins: "27",
+  },
+  {
+    id: 5,
+    image: "./assets/images/card-images/card_5.png",
+    tag: "Past",
+    title: "Engineering Graduates Employment Outcomes",
+    state: "Ended on",
+    date: "16th May'22 09:00 PM",
+  },
+  {
+    id: 6,
+    image: "./assets/images/card-images/card_6.png",
+    tag: "Past",
+    title: "Travel Insurance Claim Prediction",
+    state: "Ended on",
+    date: "16th May'22 09:00 PM",
+  },
+];
+
 const Home = () => (
   <main>
     {/* Hero Section */}
@@ -111,6 +170,68 @@ const Home = () => (
                 <img className="card_image" src={logo} alt={title} />
                 <p className="title">{title}</p>
                 <p className="desc">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* Challenges filter Section */}
+    <section className="challenges_filter_section">
+      <div className="container">
+        <div className="section_content">
+          <h1 className="title">Explore Challenges</h1>
+          <form className="form">
+            <div className="form_search">
+              <input type="search" placeholder="Search" />
+            </div>
+            <div className="form_filter">
+              <button type="button">Filter</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    {/* Challenges list Section */}
+    <section className="challenges_list_section">
+      <div className="container">
+        <div className="section_content">
+          <div className="content_grid">
+            {challenges.map(({
+              id, image, tag, title, state, date, days, hours, mins,
+            }) => (
+              <div key={id} className="grid_card">
+                <img className="card_image" src={image} alt={title} />
+                <div className="card_text">
+                  <div className={`tag tag-${tag}`}>
+                    <p>{tag}</p>
+                  </div>
+                  <p className="title">{title}</p>
+                  <p className="state">{state}</p>
+                  <div className="timer">
+                    {!date ? (
+                      <div className="countdown">
+                        <p>
+                          {days}
+                          <span>Days</span>
+                        </p>
+                        <span>:</span>
+                        <p>
+                          {hours}
+                          <span>Hours</span>
+                        </p>
+                        <span>:</span>
+                        <p>
+                          {mins}
+                          <span>Days</span>
+                        </p>
+                      </div>
+                    ) : (
+                      <p className="date">{date}</p>
+                    )}
+                  </div>
+                  <button className="action" type="button">Participate Now</button>
+                </div>
               </div>
             ))}
           </div>

@@ -2,7 +2,7 @@
   background-color: #003145;
   background-image: url(../../../../public/assets/images/svg_icons/PicsArt.svg);
   background-repeat: no-repeat;
-  background-position: 85%;
+  background-position: min(85%, 75rem);
 
   .section_banner {
     width: 44rem;
@@ -101,12 +101,14 @@
 
   .section_content {
     padding: 0 4.375rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .content_title {
       font-family: $poppins-font-weight-600;
       font-size: 2rem;
       line-height: 1.25rem;
-      text-align: center;
       margin-bottom: 4.5rem;
 
       span {
@@ -137,6 +139,187 @@
           line-height: 1.5rem;
           letter-spacing: -0.02rem;
           color: #64607D;
+        }
+      }
+    }
+  }
+}
+
+.challenges_filter_section {
+  background-color: #002A3B;
+
+  .section_content {
+    padding: 4.5rem 0 6.125rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+
+    .title {
+      font-family: $poppins-font-weight-600;
+      font-size: 1.75rem;
+      line-height: 2.5rem;
+      color: #FFFFFF;
+    }
+
+    .form {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      .form_search {
+        background-color: #FFFFFF;
+        border-radius: 0.625rem;
+
+        input[type="search"] {
+          font-family: $inter-font-weight-300;
+          font-size: 1.125rem;
+          line-height: 1.25rem;
+          display: block;
+          width: 52rem;
+          padding: 1rem 1rem 1rem 4.375rem;
+          background: transparent url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24'%3e%3cpath d='m19.475 20.15-6.25-6.25q-.75.625-1.725.975-.975.35-1.95.35-2.425 0-4.087-1.663Q3.8 11.9 3.8 9.5q0-2.4 1.663-4.063 1.662-1.662 4.062-1.662 2.4 0 4.075 1.662Q15.275 7.1 15.275 9.5q0 1.05-.375 2.025-.375.975-.975 1.65L20.2 19.45ZM9.55 14.225q1.975 0 3.35-1.362Q14.275 11.5 14.275 9.5T12.9 6.137q-1.375-1.362-3.35-1.362-2 0-3.375 1.362Q4.8 7.5 4.8 9.5t1.375 3.363q1.375 1.362 3.375 1.362Z'/%3e%3c/svg%3e") no-repeat 2rem center;
+        }
+
+        input[type="search"]::placeholder {
+          color: #858585;
+        }
+      }
+
+      .form_filter {
+        background-color: #FFFFFF;
+        border-radius: 0.625rem;
+
+        button {
+          font-family: $inter-font-weight-400;
+          font-size: 1.125rem;
+          line-height: 1.25rem;
+          padding: 1rem 3.5rem 1rem 2rem;
+          background: transparent url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24'%3e%3cpath d='m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4Z'/%3e%3c/svg%3e") no-repeat 5rem center;
+        }
+      }
+    }
+  }
+}
+
+.challenges_list_section {
+  background-color: #003145;
+
+  .section_content {
+    padding: 4.625rem 2.75rem 7.8125rem;
+
+    .content_grid {
+      display: grid;
+      grid-template-columns: 22.125rem 22.125rem 22.125rem;
+      justify-content: space-between;
+      row-gap: 3.125rem;
+
+      .grid_card {
+        background-color: #F8F9FD;
+        border-radius: 0.9375rem;
+
+        .card_text {
+          padding: 1.75rem 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .tag {
+            width: 5.625rem;
+            text-align: center;
+            padding: 0.3125rem 0;
+            border-radius: 0.3125rem;
+            margin-bottom: 1.25rem;
+
+            p {
+              font-family: $inter-font-weight-600;
+              font-size: 0.75rem;
+              line-height: 1rem;
+            }
+          }
+
+          .tag-Upcoming {
+            background-color: #F2C94C40;
+            color: #666666;
+          }
+
+          .tag-Active {
+            background-color: #44924C3D;
+            color: #44924C;
+          }
+
+          .tag-Past {
+            background-color: #FF3C002B;
+            color: #666666;
+          }
+
+          .title {
+            width: 15.375rem;
+            font-family: $poppins-font-weight-600;
+            font-size: 1rem;
+            line-height: 1.625rem;
+            text-align: center;
+            margin-bottom: 1.625rem;
+          }
+
+          .state {
+            font-family: $poppins-font-weight-500;
+            font-size: 0.875rem;
+            line-height: 0.875rem;
+            text-align: center;
+            color: #444444;
+            margin-bottom: 0.5rem;
+          }
+
+          .timer {
+            min-width: 8.875rem;
+            margin-bottom: 2rem;
+
+            .countdown {
+              display: flex;
+              justify-content: space-evenly;
+              color: #454545;
+
+              p {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: $poppins-font-weight-600;
+                font-size: 1.125rem;
+                line-height: 1.75rem;
+
+                span {
+                  font-family: $poppins-font-weight-500;
+                  font-size: 0.625rem;
+                  line-height: 0.625rem;
+                }
+              }
+
+              span {
+                font-family: $poppins-font-weight-700;
+                font-size: 1.125rem;
+                line-height: 1.75rem;
+              }
+            }
+
+            .date {
+              font-family: $poppins-font-weight-600;
+              font-size: 1.125rem;
+              line-height: 1.75rem;
+              color: #454545;
+              padding-top: 0.5rem;
+            }
+          }
+
+          .action {
+            font-family: $inter-font-weight-600;
+            font-size: 0.875rem;
+            line-height: 1.125rem;
+            padding: 0.75rem 1.375rem 0.75rem 3rem;
+            color: #FFFFFF;
+            border-radius: 0.625rem;
+            background: #44924C url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='%23FFFFFF' className='bi bi-check2-circle' viewBox='0 0 16 16'%3e%3cpath d='M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z' /%3e%3cpath d='M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z' /%3e%3c/svg%3e") no-repeat 1rem center;
+          }
         }
       }
     }

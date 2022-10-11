@@ -62,11 +62,19 @@ body {
 }
 
 .container {
-  max-width: 87.5vw;
+  max-width: 1260px;
   margin: 0 auto;
 }
 
 button {
   border: none;
   cursor: pointer;
+}
+
+input {
+  border: none;
+}
+
+input:focus {
+  outline: none;
 }
