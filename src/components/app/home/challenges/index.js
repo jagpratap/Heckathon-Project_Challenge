@@ -3,37 +3,31 @@ import { useUserContext } from "../../../../context/userContext";
 const Challenges = () => {
   const { challenges } = useUserContext();
   return (
-    <>
-      {/* Filter */}
-      <section className="challenges_filter_section">
+    <section className="challenges_section">
+      <div className="section_header">
         <div className="container">
-          <div className="section_content">
+          <div className="header_content">
             <h1 className="title">Explore Challenges</h1>
-            <form className="form">
-              <div className="form_search">
-                <input type="search" placeholder="Search" />
+            <div className="form_tab">
+              <input className="search_bar" type="search" placeholder="Search" />
+              <div className="filter_bar">
+                <button className="action" type="button">Filter</button>
               </div>
-              <div className="form_filter">
-                <button type="button">Filter</button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
-      </section>
-      {/* List */}
-      <section className="challenges_list_section">
+      </div>
+      <div className="section_list">
         <div className="container">
-          <div className="section_content">
+          <div className="list_content">
             <div className="content_grid">
               {challenges.map(({
                 id, image, tag, title, state, date, days, hours, mins,
               }) => (
                 <div key={id} className="grid_card">
-                  <img className="card_image" src={image} alt={title} />
-                  <div className="card_text">
-                    <div className={`tag tag-${tag}`}>
-                      <p>{tag}</p>
-                    </div>
+                  <img className="illustration" src={image} alt={title} />
+                  <div className="card_content">
+                    <p className={`tag tag-${tag}`}>{tag}</p>
                     <p className="title">{title}</p>
                     <p className="state">{state}</p>
                     <div className="timer">
@@ -65,8 +59,8 @@ const Challenges = () => {
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
