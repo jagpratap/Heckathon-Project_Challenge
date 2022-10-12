@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 const statistics = [
   {
     id: 1,
@@ -28,52 +30,62 @@ const statistics = [
   },
 ];
 
-const Hero = () => (
-  <section className="hero_section">
-    <div className="section_banner">
-      <div className="container">
-        <div className="banner_content">
-          <div className="content_left">
-            <div className="vertical_strip" />
-            <div className="left_main">
-              <h1 className="title">Accelerate Innovation with Global AI Challenges</h1>
-              <p className="intro">
-                AI Challenges at DPhi simulate real-world problems. It is a great place to
-                put your AI/Data Science skills to test on diverse datasets allowing you
-                to foster learning through competitions.
-              </p>
-              <button className="action" type="button">Create Challenge</button>
+const Hero = () => {
+  const navigate = useNavigate();
+  return (
+    <section className="hero_section">
+      <div className="section_banner">
+        <div className="container">
+          <div className="banner_content">
+            <div className="content_left">
+              <div className="vertical_strip" />
+              <div className="left_main">
+                <h1 className="title">Accelerate Innovation with Global AI Challenges</h1>
+                <p className="intro">
+                  AI Challenges at DPhi simulate real-world problems. It is a great place to
+                  put your AI/Data Science skills to test on diverse datasets allowing you
+                  to foster learning through competitions.
+                </p>
+                <button
+                  className="action"
+                  type="button"
+                  onClick={() => navigate("/form")}
+                >
+                  Create Challenge
+
+                </button>
+              </div>
+            </div>
+            <div className="content_right">
+              <img src="./assets/images/svg_icons/hero_bg_illustration.svg" alt="Hero-Illustration" />
             </div>
           </div>
-          <div className="content_right">
-            <img src="./assets/images/svg_icons/hero_bg_illustration.svg" alt="Hero-Illustration" />
+        </div>
+      </div>
+      <div className="section_statistics">
+        <div className="container">
+          <div className="statistics_content">
+            {statistics.map(({
+              id, logoUrl, logoAlt, count, label,
+            }) => {
+              if (id % 2 !== 0) {
+                return (
+                  <div className="content_card" key={id}>
+                    <img className="card_illustration" src={logoUrl} alt={logoAlt} />
+                    <div className="card_stats">
+                      <p className="count">{count}</p>
+                      <p className="label">{label}</p>
+                    </div>
+                  </div>
+                );
+              }
+              return <div key={id} className="vertical_strip" />;
+            })}
           </div>
         </div>
       </div>
-    </div>
-    <div className="section_statistics">
-      <div className="container">
-        <div className="statistics_content">
-          {statistics.map(({
-            id, logoUrl, logoAlt, count, label,
-          }) => {
-            if (id % 2 !== 0) {
-              return (
-                <div className="content_card" key={id}>
-                  <img className="card_illustration" src={logoUrl} alt={logoAlt} />
-                  <div className="card_stats">
-                    <p className="count">{count}</p>
-                    <p className="label">{label}</p>
-                  </div>
-                </div>
-              );
-            }
-            return <div key={id} className="vertical_strip" />;
-          })}
-        </div>
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Hero;
