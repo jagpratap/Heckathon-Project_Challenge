@@ -2,54 +2,58 @@
 
   .section_banner {
     background-color: #003145;
-    background-image: url(../../../../public/assets/images/svg_icons/hero_bg_illustration.svg);
-    background-repeat: no-repeat;
-    background-position: 85%;
 
     .banner_content {
-      width: 44rem;
-      padding: 7.75rem 0 5.875rem;
-      margin-left: 3.375rem;
       display: flex;
+      align-items: center;
+      gap: 6rem;
 
-      .vertical_strip {
-        width: 9.71px;
-        height: 115.91px;
-        background-color: #FFCE5C;
-      }
-
-      .content_main {
-        width: 40.25rem;
-        margin-left: auto;
+      .content_left {
+        width: 44rem;
+        padding: 7.75rem 0 5.875rem;
+        margin-left: 3.375rem;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2.375rem;
 
-        .title {
-          font-family: $poppins-font-weight-600;
-          font-size: 3rem;
-          line-height: 3.5rem;
-          color: #FFFFFF;
+        .vertical_strip {
+          width: 9.71px;
+          height: 115.91px;
+          background-color: #FFCE5C;
         }
 
-        .intro {
-          width: 85%;
-          font-family: $poppins-font-weight-500;
-          font-size: 1.125rem;
-          line-height: 1.75rem;
-          color: #ECECEC;
+        .left_main {
+          width: 40.25rem;
+          margin-left: auto;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 2.375rem;
+
+          .title {
+            font-family: $poppins-font-weight-600;
+            font-size: 3rem;
+            line-height: 3.5rem;
+            color: #FFFFFF;
+          }
+
+          .intro {
+            width: 85%;
+            font-family: $poppins-font-weight-500;
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            color: #ECECEC;
+          }
+
+          .action {
+            padding: 0.875rem 1.125rem;
+            border-radius: 0.625rem;
+            background-color: #FFFFFF;
+            font-family: $poppins-font-weight-600;
+            font-size: 1.125rem;
+            line-height: 1.125rem;
+            color: #003145;
+          }
         }
 
-        .action {
-          padding: 0.875rem 1.125rem;
-          border-radius: 0.625rem;
-          background-color: #FFFFFF;
-          font-family: $poppins-font-weight-600;
-          font-size: 1.125rem;
-          line-height: 1.125rem;
-          color: #003145;
-        }
       }
     }
   }

@@ -33,15 +33,20 @@ const Hero = () => (
     <div className="section_banner">
       <div className="container">
         <div className="banner_content">
-          <div className="vertical_strip" />
-          <div className="content_main">
-            <h1 className="title">Accelerate Innovation with Global AI Challenges</h1>
-            <p className="intro">
-              AI Challenges at DPhi simulate real-world problems. It is a great place to
-              put your AI/Data Science skills to test on diverse datasets allowing you
-              to foster learning through competitions.
-            </p>
-            <button className="action" type="button">Create Challenge</button>
+          <div className="content_left">
+            <div className="vertical_strip" />
+            <div className="left_main">
+              <h1 className="title">Accelerate Innovation with Global AI Challenges</h1>
+              <p className="intro">
+                AI Challenges at DPhi simulate real-world problems. It is a great place to
+                put your AI/Data Science skills to test on diverse datasets allowing you
+                to foster learning through competitions.
+              </p>
+              <button className="action" type="button">Create Challenge</button>
+            </div>
+          </div>
+          <div className="content_right">
+            <img src="./assets/images/svg_icons/hero_bg_illustration.svg" alt="Hero-Illustration" />
           </div>
         </div>
       </div>
