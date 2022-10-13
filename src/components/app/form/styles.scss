@@ -1,9 +1,9 @@
 .form_section {
-  .section_heading {
+  .section_header {
     background-color: #F8F9FD;
     padding: 2.5rem 0;
 
-    h1 {
+    .heading {
       font-family: $inter-font-weight-700;
       font-size: 1.5rem;
       line-height: 1.75rem;
@@ -13,75 +13,78 @@
   .section_form {
     padding: 2rem 0 4.25rem;
 
+    .label {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      font-family: $inter-font-weight-500;
+      font-size: 1rem;
+      line-height: 1.25rem;
+      color: #333333;
+    }
+
     .form_inputs {
       display: flex;
       flex-direction: column;
       gap: 2.125rem;
       margin-bottom: 2.75rem;
 
-      .form_input {
-        label {
-          display: flex;
-          flex-direction: column;
-          gap: 1.25rem;
-          font-family: $inter-font-weight-500;
-          font-size: 1rem;
-          line-height: 1.25rem;
-          color: #333333;
+      input {
+        border: 1px solid #B7B7B7;
+        border-radius: 0.3125rem;
+        width: 28rem;
+        padding: 0.625rem 1.25rem;
+        color: #444444;
+      }
 
-          input {
-            border: 1px solid #B7B7B7;
-            border-radius: 0.3125rem;
-            width: 28rem;
-            padding: 0.625rem 1.25rem;
-          }
-
-          // input[type="date"] {}
-        }
+      input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        color: rgba(0, 0, 0, 0);
+        opacity: 1;
+        display: block;
+        background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24' fill='%23808080'%3e%3cpath d='M5 22q-.825 0-1.413-.587Q3 20.825 3 20V6q0-.825.587-1.412Q4.175 4 5 4h1V2h2v2h8V2h2v2h1q.825 0 1.413.588Q21 5.175 21 6v14q0 .825-.587 1.413Q19.825 22 19 22Zm0-2h14V10H5v10ZM5 8h14V6H5Zm0 0V6v2Z'/%3e%3c/svg%3e") no-repeat;
+        width: 20px;
+        height: 20px;
+        border-width: thin;
       }
     }
 
     .form_textarea {
       margin-bottom: 2.75rem;
 
-      label {
-        display: flex;
-        flex-direction: column;
-        gap: 1.25rem;
-        font-family: $inter-font-weight-500;
-        font-size: 1rem;
-        line-height: 1.25rem;
-        color: #333333;
-
-        textarea {
-          border: 1px solid #B7B7B7;
-          border-radius: 0.3125rem;
-          width: 51rem;
-          height: 15.75rem;
-          padding: 1.25rem;
-        }
+      textarea {
+        border: 1px solid #B7B7B7;
+        border-radius: 0.3125rem;
+        width: 51rem;
+        height: 15.75rem;
+        padding: 1.25rem;
+        color: #444444;
       }
     }
 
     .form_upload {
       margin-bottom: 2.75rem;
 
+      p {
+        margin-bottom: 1.25rem;
+      }
+
       label {
         display: flex;
         flex-direction: column;
-        gap: 1.25rem;
+        cursor: pointer;
+        width: 14.75rem;
+        border: 1px solid #D9D9D9;
+        border-radius: 0.3125rem;
+        padding: 0.8125rem 6.25rem 0.8125rem 4.625rem;
         font-family: $inter-font-weight-500;
-        font-size: 1rem;
-        line-height: 1.25rem;
-        color: #333333;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
+        color: #666666;
+        background: #F4F4F4 url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='%23666666' className='bi bi-cloud-arrow-up-fill' viewBox='0 0 16 16'%3e%3cpath d='M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 5.146a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2z' /%3e%3c/svg%3e") no-repeat 9rem center;
 
         input {
-          cursor: pointer;
-          width: 14.75rem;
-          border: 1px solid #D9D9D9;
-          background-color: #F4F4F4;
-          border-radius: 0.3125rem;
-          padding: 0.8125rem 1.25rem;
+          display: none;
         }
       }
     }
@@ -89,27 +92,22 @@
     .form_select {
       margin-bottom: 3.5rem;
 
-      label {
-        display: flex;
-        flex-direction: column;
-        gap: 1.25rem;
+      select {
+        cursor: pointer;
+        width: 14.75rem;
+        border: 1px solid #D9D9D9;
+        border-radius: 0.3125rem;
+        padding: 0.625rem 1.25rem;
         font-family: $inter-font-weight-500;
-        font-size: 1rem;
-        line-height: 1.25rem;
+        font-size: 0.875rem;
+        line-height: 1rem;
         color: #333333;
-
-        select {
-          cursor: pointer;
-          width: 14.75rem;
-          border: 1px solid #D9D9D9;
-          background-color: #FFFFFF;
-          border-radius: 0.3125rem;
-          padding: 0.625rem 1.25rem;
-        }
+        appearance: none;
+        background: transparent url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24' fill='%23000000'%3e%3cpath d='M12 15.825 5.55 9.35 7.4 7.5l4.6 4.6 4.6-4.6 1.85 1.85Z'/%3e%3c/svg%3e") no-repeat 12rem center;
       }
     }
 
-    .form_button {
+    .form_action {
       padding: 0.75rem 2rem;
       border-radius: 0.625rem;
       background-color: #44924C;
