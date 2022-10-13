@@ -1,7 +1,9 @@
+/* eslint-disable no-console */
 import { useUserContext } from "../../../../context/userContext";
 
 const Challenges = () => {
   const { challenges } = useUserContext();
+  console.log(challenges);
   return (
     <section className="challenges_section">
       <div className="section_header">
@@ -22,29 +24,29 @@ const Challenges = () => {
           <div className="list_content">
             <div className="content_grid">
               {challenges.map(({
-                id, image, tag, title, state, date, days, hours, mins,
+                id, image, title, date,
               }) => (
                 <div key={id} className="grid_card">
-                  <img className="illustration" src={image} alt={title} />
+                  <img className="illustration" src={image} alt="card-illustration" />
                   <div className="card_content">
-                    <p className={`tag tag-${tag}`}>{tag}</p>
+                    <p className="tag tag-Upcoming">Upcoming</p>
                     <p className="title">{title}</p>
-                    <p className="state">{state}</p>
+                    <p className="state">Starts in</p>
                     <div className="timer">
                       {!date ? (
                         <div className="countdown">
                           <p>
-                            {days}
+                            00
                             <span>Days</span>
                           </p>
                           <span>:</span>
                           <p>
-                            {hours}
+                            15
                             <span>Hours</span>
                           </p>
                           <span>:</span>
                           <p>
-                            {mins}
+                            22
                             <span>Days</span>
                           </p>
                         </div>
