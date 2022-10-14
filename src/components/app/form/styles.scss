@@ -69,31 +69,58 @@
         margin-bottom: 1.25rem;
       }
 
+      input[type="file"] {
+        display: none;
+      }
+
       label {
         display: flex;
         flex-direction: column;
         cursor: pointer;
+
+        .preview {
+          padding-left: 1.8rem;
+        }
+      }
+
+      .label_noPreview {
         width: 14.75rem;
+        padding: 0.8125rem 6.25rem 0.8125rem 4.625rem;
         border: 1px solid #D9D9D9;
         border-radius: 0.3125rem;
-        padding: 0.8125rem 6.25rem 0.8125rem 4.625rem;
         font-family: $inter-font-weight-500;
         font-size: 1.125rem;
         line-height: 1.375rem;
         color: #666666;
         background: #F4F4F4 url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='%23666666' className='bi bi-cloud-arrow-up-fill' viewBox='0 0 16 16'%3e%3cpath d='M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 5.146a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2z' /%3e%3c/svg%3e") no-repeat 9rem center;
+      }
+
+      .label_preview {
+        width: 18.75rem;
+        padding: 1.375rem;
+        font-family: $inter-font-weight-500;
+        border: 1px solid #F8F9FD;
+        border-radius: 0.625rem;
+        font-size: 0.875rem;
+        line-height: 1.125rem;
+        color: #44924C;
+        background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2344924C' className='bi bi-image-fill' viewBox='0 0 16 16'%3e%3cpath d='M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2V3zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z' /%3e%3c/svg%3e") no-repeat 1.5rem 10.8rem, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2344924C' className='bi bi-arrow-right' viewBox='0 0 16 16'%3E%3Cpath fillRule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z' /%3E%3C/svg%3E") no-repeat 9.8rem 10.8rem;
+        background-color: #F4F4F4;
 
         input {
           display: none;
         }
       }
 
-      .show {
-        display: block;
+      .img_noPreview {
+        display: none;
       }
 
-      .hide {
-        display: none;
+      .img_preview {
+        width: 15.625rem;
+        height: 7.625rem;
+        border-radius: 1rem;
+        margin-bottom: 1.75rem;
       }
     }
 
