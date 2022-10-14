@@ -1,20 +1,30 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+/* eslint-disable no-unused-vars */
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 import { useUserContext } from "../../../context/userContext";
 
 const Form = () => {
   const navigate = useNavigate();
-  const { setChallenges } = useUserContext();
+  const location = useLocation();
+  const id = location.state;
+  const { challenges, setChallenges } = useUserContext();
   const [formData, setFormData] = useState({
-    title: "Data Sprint 72 - Butterfly Identification",
-    startDate: "2022-10-14T11:18",
-    endDate: "2022-10-15T11:18",
-    description: "Identify the class to which each butterfly belongs to",
+    title: "",
+    startDate: "",
+    endDate: "",
+    description: "",
     level: "easy",
   });
   const [image, setImage] = useState("");
   const [isUploaded, setUploaded] = useState(false);
+  useEffect(() => {
+    if (!id) return;
+    const challengeTemp = challenges.filter((item) => item.id === id);
+    setFormData(...challengeTemp);
+    setImage(challengeTemp[0].image);
+    setUploaded(true);
+  }, []);
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
@@ -36,13 +46,24 @@ const Form = () => {
   };
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    const id = uuid();
-    const data = { id, ...formData, image };
-    setChallenges((prevChallenges) => ([
-      ...prevChallenges,
-      data,
-    ]));
-    navigate("/home#challenges");
+    let challengesTemp;
+    if (id) {
+      const editedChallenges = challenges.map((item) => {
+        if (item.id === id) {
+          return { ...formData, image };
+        }
+        return item;
+      });
+      challengesTemp = [...editedChallenges];
+    } else {
+      const challenge = { id: uuid(), ...formData, image };
+      challengesTemp = [...challenges, challenge];
+    }
+    let localData = JSON.parse(localStorage.getItem("challengeList"));
+    if (!localData) localData = [];
+    localStorage.setItem("challengeList", JSON.stringify(...localData, challengesTemp));
+    setChallenges(challengesTemp);
+    navigate("/home");
   };
   return (
     <section className="form_section">
@@ -121,12 +142,6 @@ const Form = () => {
                 required
               />
             </label>
-            {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#44924C" className="bi bi-image-fill" viewBox="0 0 16 16">
-              <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2V3zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#44924C" className="bi bi-arrow-right" viewBox="0 0 16 16">
-              <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-            </svg> */}
           </div>
           <div className="form_select">
             <label className="label" htmlFor="level">

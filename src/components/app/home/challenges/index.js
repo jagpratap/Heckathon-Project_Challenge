@@ -1,9 +1,8 @@
-/* eslint-disable no-console */
 import { useUserContext } from "../../../../context/userContext";
+import Challenge from "./challenge";
 
 const Challenges = () => {
   const { challenges } = useUserContext();
-  console.log(challenges);
   return (
     <section className="challenges_section">
       <div className="section_header">
@@ -23,40 +22,8 @@ const Challenges = () => {
         <div className="container">
           <div className="list_content">
             <div className="content_grid">
-              {challenges.map(({
-                id, image, title, date,
-              }) => (
-                <div key={id} className="grid_card">
-                  <img className="illustration" src={image} alt="card-illustration" />
-                  <div className="card_content">
-                    <p className="tag tag-Upcoming">Upcoming</p>
-                    <p className="title">{title}</p>
-                    <p className="state">Starts in</p>
-                    <div className="timer">
-                      {!date ? (
-                        <div className="countdown">
-                          <p>
-                            00
-                            <span>Days</span>
-                          </p>
-                          <span>:</span>
-                          <p>
-                            15
-                            <span>Hours</span>
-                          </p>
-                          <span>:</span>
-                          <p>
-                            22
-                            <span>Days</span>
-                          </p>
-                        </div>
-                      ) : (
-                        <p className="date">{date}</p>
-                      )}
-                    </div>
-                    <button className="action" type="button">Participate Now</button>
-                  </div>
-                </div>
+              {challenges.map((challenge) => (
+                <Challenge key={challenge.id} challenge={challenge} />
               ))}
             </div>
           </div>

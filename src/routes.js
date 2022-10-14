@@ -9,6 +9,7 @@ import Layout from "./layouts";
 
 import Home from "./pages/home";
 import Form from "./pages/form";
+import Detail from "./pages/detail";
 
 const routes = [
   {
@@ -22,6 +23,12 @@ const routes = [
     path: "/form",
     exact: true,
     component: Form,
+  },
+  {
+    key: "DETAIL",
+    path: "/detail",
+    exact: true,
+    component: Detail,
   },
 ];
 

@@ -1,0 +1,117 @@
+.detail_section {
+  .section_header {
+    background-color: #003145;
+
+    .header_content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 6rem 2.5rem;
+
+      .start_date {
+        border-radius: 0.3125rem;
+        padding: 0.75rem 3.125rem;
+        font-family: $inter-font-weight-600;
+        font-size: 0.875rem;
+        line-height: 0.75rem;
+        background: #FFCE5C url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24'%3E%3Cpath d='m15.475 16.525 1.05-1.05L12.75 11.7V7h-1.5v5.3ZM12 21.5q-1.975 0-3.712-.75Q6.55 20 5.275 18.725T3.25 15.712Q2.5 13.975 2.5 12t.75-3.713Q4 6.55 5.275 5.275T8.288 3.25Q10.025 2.5 12 2.5t3.713.75q1.737.75 3.012 2.025t2.025 3.012q.75 1.738.75 3.713t-.75 3.712q-.75 1.738-2.025 3.013t-3.012 2.025q-1.738.75-3.713.75Zm0-9.5Zm0 8q3.325 0 5.663-2.337Q20 15.325 20 12t-2.337-5.663Q15.325 4 12 4T6.338 6.337Q4 8.675 4 12t2.338 5.663Q8.675 20 12 20Z'/%3E%3C/svg%3E") no-repeat 1rem center;
+      }
+
+      .title {
+        font-family: $poppins-font-weight-600;
+        font-size: 2.5rem;
+        line-height: 3rem;
+        color: #FFFFFF;
+        margin-bottom: 0.625rem;
+      }
+
+      .desc {
+        font-family: $inter-font-weight-500;
+        font-size: 1.125rem;
+        line-height: 1.5rem;
+        color: #F8F9FD;
+      }
+
+      .level {
+        border-radius: 0.3125rem;
+        padding: 0.75rem 1.125rem 0.75rem 2.875rem;
+        font-family: $inter-font-weight-600;
+        font-size: 0.875rem;
+        line-height: 0.75rem;
+        text-transform: capitalize;
+        color: #003145;
+        background: #F8F9FD url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bar-chart' viewBox='0 0 16 16'%3E%3Cpath d='M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z'/%3E%3C/svg%3E") no-repeat 1.5rem center;
+      }
+    }
+  }
+
+  .section_actions {
+    border: 0.3px solid #DDE6ED;
+    box-shadow: 0px 6px 12px 0px #DDE6ED;
+
+    .actions_content {
+      height: 4.125rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2.5rem;
+
+      .content_left {
+        font-family: $inter-font-weight-700;
+        font-size: 1.125rem;
+        line-height: 1.875rem;
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        border-bottom: 0.3125rem solid #44924C;
+      }
+
+      .content_right {
+        display: flex;
+        gap: 1.125rem;
+
+        button {
+          width: 5.625rem;
+          border-radius: 0.625rem;
+          padding: 0.625rem 0;
+        }
+
+        .action_edit {
+          background-color: #44924C;
+          font-family: $poppins-font-weight-600;
+          font-size: 0.875rem;
+          line-height: 1.125rem;
+          color: #FFFFFF;
+        }
+
+        .action_delete {
+          background-color: transparent;
+          border: 1px solid #DC1414;
+          font-family: $poppins-font-weight-600;
+          font-size: 0.875rem;
+          line-height: 1.125rem;
+          color: #DC1414;
+        }
+      }
+    }
+  }
+
+  .section_overview {
+
+    .overview_text {
+      width: 82%;
+      padding: 2.875rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      p {
+        font-family: $poppins-font-weight-500;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        letter-spacing: -0.02rem;
+        color: #64607D;
+      }
+    }
+  }
+}

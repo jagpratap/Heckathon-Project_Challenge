@@ -1,19 +1,19 @@
-import { StrictMode, useEffect } from "react";
+import { useEffect } from "react";
 import { useUserContext } from "./context/userContext";
 import "./global.scss";
 import Routes from "./routes";
-import data from "./services/data";
 
 const App = () => {
   const { setChallenges } = useUserContext();
   useEffect(() => {
-    setChallenges(data);
+    const localData = JSON.parse(localStorage.getItem("challengeList"));
+    if (!localData) {
+      setChallenges([]);
+    } else {
+      setChallenges(localData);
+    }
   }, []);
-  return (
-    <StrictMode>
-      <Routes />
-    </StrictMode>
-  );
+  return <Routes />;
 };
 
 export default App;
