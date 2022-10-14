@@ -4,9 +4,9 @@
   "display": "browser",
   "scope": "/",
   "start_url": "/",
-  "name": "React Boiler Plate",
-  "short_name": "React Boiler Plate",
-  "description": "React boiler plate supporting routing with eslint and sass integration",
+  "name": "Heckathon",
+  "short_name": "Heckathon",
+  "description": "Heckathon",
   "icons": [
     {
       "src": "/assets/images/icons/icon-192x192.png",

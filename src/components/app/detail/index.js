@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useNavigate, useLocation } from "react-router-dom";
 import moment from "moment";
 import { useUserContext } from "../../../context/userContext";
