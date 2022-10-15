@@ -1,1 +1,1 @@
-[Website Live Preview](https://magenta-bavarois-c5a4a0.netlify.app/home)
+[Website Live Preview](https://magenta-bavarois-c5a4a0.netlify.app)
