@@ -52,7 +52,6 @@ const Hero = () => {
                   onClick={() => navigate("/form")}
                 >
                   Create Challenge
-
                 </button>
               </div>
             </div>
