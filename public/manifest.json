@@ -1,12 +1,12 @@
 {
-  "theme_color": "#000000",
+  "theme_color": "#44924C",
   "background_color": "#ffffff",
   "display": "browser",
   "scope": "/",
   "start_url": "/",
   "name": "Heckathon",
   "short_name": "Heckathon",
-  "description": "Heckathon",
+  "description": "AI Challenges to simulate real-world problems",
   "icons": [
     {
       "src": "/assets/images/icons/icon-192x192.png",
