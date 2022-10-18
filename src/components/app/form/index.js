@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 import { useUserContext } from "../../../context/userContext";
@@ -7,6 +7,7 @@ const Form = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const id = location.state;
+  const endDateInputRef = useRef();
   const { challenges, setChallenges } = useUserContext();
   const [formData, setFormData] = useState({
     title: "",
@@ -18,12 +19,12 @@ const Form = () => {
   const [image, setImage] = useState("");
   const [isUploaded, setUploaded] = useState(false);
   useEffect(() => {
-    if (!id) return;
+    if (!id || !challenges.length) return;
     const challengeTemp = challenges.filter((item) => item.id === id);
     setFormData(...challengeTemp);
     setImage(challengeTemp[0].image);
     setUploaded(true);
-  }, []);
+  }, [challenges]);
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
@@ -45,8 +46,18 @@ const Form = () => {
   };
   const onSubmitHandler = (event) => {
     event.preventDefault();
+    if (formData.endDate < formData.startDate) {
+      endDateInputRef.current.focus();
+      return;
+    }
     let challengesTemp;
-    if (id) {
+    let localData = JSON.parse(localStorage.getItem("challengeList"));
+    if (!localData) localData = [];
+    if (!id) {
+      const newChallenge = { id: uuid(), ...formData, image };
+      challengesTemp = [...challenges, newChallenge];
+      localStorage.setItem("challengeList", JSON.stringify([...localData, newChallenge]));
+    } else {
       const editedChallenges = challenges.map((item) => {
         if (item.id === id) {
           return { ...formData, image };
@@ -54,13 +65,8 @@ const Form = () => {
         return item;
       });
       challengesTemp = [...editedChallenges];
-    } else {
-      const challenge = { id: uuid(), ...formData, image };
-      challengesTemp = [...challenges, challenge];
+      localStorage.setItem("challengeList", JSON.stringify([...challengesTemp]));
     }
-    let localData = JSON.parse(localStorage.getItem("challengeList"));
-    if (!localData) localData = [];
-    localStorage.setItem("challengeList", JSON.stringify(...localData, challengesTemp));
     setChallenges(challengesTemp);
     navigate("/home");
   };
@@ -96,7 +102,6 @@ const Form = () => {
                   name="startDate"
                   value={formData.startDate}
                   onChange={onChangeHandler}
-                  min={new Date().toISOString().slice(0, -8)}
                   required
                 />
               </label>
@@ -111,6 +116,7 @@ const Form = () => {
                   value={formData.endDate}
                   onChange={onChangeHandler}
                   required
+                  ref={endDateInputRef}
                 />
               </label>
             </div>
