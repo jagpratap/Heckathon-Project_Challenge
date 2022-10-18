@@ -31,7 +31,7 @@ const Challenges = () => {
               </div>
             ) : (
               <div className="default">
-                <img src="./assets/images/png/casual-life-3d-girl-meditating.png" alt="girl-meditating" />
+                <img src="./assets/images/svg_icons/undraw_not_found.svg" alt="Not_found_illustration" />
                 <p>
                   Uh-oh.. It looks like you have not created any Challenge.
                   {" "}
