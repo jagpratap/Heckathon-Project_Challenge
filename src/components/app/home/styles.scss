@@ -227,6 +227,8 @@
 
           .illustration {
             height: 10.875rem;
+            width: 100%;
+            object-fit: cover;
           }
 
           .card_content {
@@ -337,6 +339,10 @@
         flex-direction: column;
         align-items: center;
         gap: 1rem;
+
+        img {
+          width: 20rem;
+        }
 
         p {
           font-family: "Poppins, Medium";
