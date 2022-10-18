@@ -164,7 +164,7 @@ const Form = () => {
             </label>
           </div>
           <button className="form_action" type="submit">
-            Create Challenge
+            {!id ? "Create Challenge" : "Save Changes"}
           </button>
         </div>
       </form>
