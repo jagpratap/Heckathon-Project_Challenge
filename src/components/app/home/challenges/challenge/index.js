@@ -58,7 +58,6 @@ const Challenge = ({ challenge }) => {
             type="button"
           >
             Participate Now
-
           </button>
         </div>
       </div>
