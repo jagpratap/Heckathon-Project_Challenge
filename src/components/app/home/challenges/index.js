@@ -1,8 +1,8 @@
-/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import { useUserContext } from "../../../../context/userContext";
+
 import Challenge from "./challenge";
 
 const filterDropdown = [
@@ -52,7 +52,6 @@ const stateOfChallenge = (startDate, endDate) => {
 const Challenges = () => {
   const navigate = useNavigate();
   const { challenges } = useUserContext();
-
   const [list, setList] = useState(challenges);
   const [isExpanded, setExpanded] = useState(false);
   const [filter = [], setFilter] = useState();
