@@ -1,10 +1,52 @@
+/* eslint-disable no-unused-vars */
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../../../context/userContext";
 import Challenge from "./challenge";
 
+const filterOptions = [
+  {
+    id: 1,
+    value: "Status",
+  },
+  {
+    id: 2,
+    value: "All",
+  },
+  {
+    id: 3,
+    value: "Active",
+  },
+  {
+    id: 4,
+    value: "Upcoming",
+  },
+  {
+    id: 5,
+    value: "Past",
+  },
+  {
+    id: 6,
+    value: "Level",
+  },
+  {
+    id: 7,
+    value: "Easy",
+  },
+  {
+    id: 8,
+    value: "Medium",
+  },
+  {
+    id: 9,
+    value: "Hard",
+  },
+];
+
 const Challenges = () => {
   const navigate = useNavigate();
   const { challenges } = useUserContext();
+  const [isExpanded, setExpanded] = useState(false);
   return (
     <section className="challenges_section">
       <div className="section_header">
@@ -14,7 +56,39 @@ const Challenges = () => {
             <div className="form_tab">
               <input className="search_bar" type="search" placeholder="Search" />
               <div className="filter_bar">
-                <button className="action" type="button">Filter</button>
+                <button
+                  type="button"
+                  className={isExpanded ? "expand_more" : "expand_less"}
+                  onClick={() => setExpanded((prev) => !prev)}
+                >
+                  Filter
+                </button>
+              </div>
+              <div className={isExpanded ? "dropdown_show" : "dropdown_hide"}>
+                <button
+                  type="button"
+                  onClick={() => setExpanded((prev) => !prev)}
+                >
+                  Filter
+                </button>
+                <div className="dropdown_menu">
+                  {filterOptions.map(({ id, value }) => {
+                    if (id === 1 || id === 6) {
+                      return (
+                        <div key={id}>
+                          <div className="horizontal_break" />
+                          <p>{value}</p>
+                        </div>
+                      );
+                    }
+                    return (
+                      <label key={id} htmlFor={value}>
+                        <input type="checkbox" id={value} name={value} />
+                        <span>{value}</span>
+                      </label>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>

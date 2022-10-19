@@ -160,28 +160,29 @@
 
     .header_content {
       padding: 4.5rem 0 6.125rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4rem;
 
       .title {
         font-family: $poppins-font-weight-600;
         font-size: 1.75rem;
         line-height: 2.5rem;
         color: #FFFFFF;
+        text-align: center;
+        margin-bottom: 4rem;
       }
 
       .form_tab {
         display: flex;
         align-items: center;
         gap: 1.5rem;
+        position: relative;
 
         .search_bar {
           width: 52rem;
           border-radius: 0.625rem;
           padding: 1rem;
           padding-left: 4.375rem;
+          margin-left: 9rem;
+          flex-shrink: 0;
           font-family: $inter-font-weight-300;
           font-size: 1.125rem;
           line-height: 1.25rem;
@@ -196,12 +197,77 @@
           background-color: #FFFFFF;
           border-radius: 0.625rem;
 
-          .action {
-            padding: 0.75rem 3.5rem 0.75rem 2rem;
+          button {
             font-family: $inter-font-weight-400;
             font-size: 1.125rem;
             line-height: 1.625rem;
-            background: transparent url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chevron-down' viewBox='0 0 16 16'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") no-repeat 5.5rem center;
+          }
+
+          .expand_less {
+            padding: 0.75rem 2.8rem 0.75rem 1.5rem;
+            background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24'%3E%3Cpath d='M12 15.55 5.8 9.375l1.6-1.6 4.6 4.6 4.6-4.6 1.6 1.6Z'/%3E%3C/svg%3E") no-repeat 5rem center;
+          }
+
+          .expand_more {
+            display: none;
+          }
+        }
+
+        .dropdown_hide {
+          display: none;
+        }
+
+        .dropdown_show {
+          position: absolute;
+          left: 62.5rem;
+          bottom: -21.7rem;
+          box-shadow: 0px 6px 12px 0px #DDE6ED4D;
+          z-index: 100;
+
+          button {
+            font-family: $inter-font-weight-400;
+            font-size: 1.125rem;
+            line-height: 1.625rem;
+            padding: 0.75rem 14rem 0.75rem 1.5rem;
+            border-top-left-radius: 0.625rem;
+            border-top-right-radius: 0.625rem;
+            background: #FFFFFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24'%3E%3Cpath d='m7.4 15.55-1.6-1.575 6.2-6.2 6.2 6.2-1.6 1.575-4.6-4.6Z'/%3E%3C/svg%3E") no-repeat 15.5rem center;
+          }
+
+          .dropdown_menu {
+            width: 18.125rem;
+            padding: 0 1rem 1.5rem;
+            background-color: #FFFFFF;
+            border-bottom-left-radius: 0.625rem;
+            border-bottom-right-radius: 0.625rem;
+            display: flex;
+            flex-direction: column;
+            font-family: $inter-font-weight-400;
+            font-size: 1rem;
+            line-height: 1.25rem;
+            color: #858585;
+
+            .horizontal_break {
+              border: 1px solid #ECECEC;
+              margin: 0.875rem 0;
+            }
+
+            p {
+              margin-bottom: 0.875rem;
+            }
+
+            label {
+              margin-bottom: 0.5rem;
+
+              span {
+                margin-left: 0.625rem;
+              }
+            }
+
+            :nth-child(6),
+            :nth-child(11) {
+              margin-bottom: 0;
+            }
           }
         }
       }
