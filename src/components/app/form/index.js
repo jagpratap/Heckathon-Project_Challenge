@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { v4 as uuid } from "uuid";
@@ -7,14 +8,28 @@ const Form = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const id = location.state;
+  const titleInputRef = useRef();
+  const startDateInputRef = useRef();
   const endDateInputRef = useRef();
+  const descriptionInputRef = useRef();
+  const imageInputRef = useRef();
+  const selectInputRef = useRef();
   const { challenges, setChallenges } = useUserContext();
   const [formData, setFormData] = useState({
     title: "",
     startDate: "",
     endDate: "",
     description: "",
-    level: "easy",
+    level: "",
+  });
+  const [errors, setErrors] = useState({
+    title: false,
+    startDate: false,
+    endDate: false,
+    validEndDate: false,
+    description: false,
+    image: false,
+    level: false,
   });
   const [image, setImage] = useState("");
   const [isUploaded, setUploaded] = useState(false);
@@ -44,12 +59,113 @@ const Form = () => {
       reader.readAsDataURL(event.target.files[0]);
     }
   };
+  const validationSchema = () => {
+    if (formData.title === "") {
+      setErrors((prev) => (
+        {
+          ...prev,
+          title: true,
+        }
+      ));
+      titleInputRef.current.focus();
+      titleInputRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+      return false;
+    }
+    if (formData.startDate === "") {
+      setErrors((prev) => (
+        {
+          ...prev,
+          startDate: true,
+        }
+      ));
+      startDateInputRef.current.focus();
+      startDateInputRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+      return false;
+    }
+    if (formData.endDate === "") {
+      setErrors((prev) => (
+        {
+          ...prev,
+          endDate: true,
+        }
+      ));
+      endDateInputRef.current.focus();
+      endDateInputRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+      return false;
+    }
+    if (formData.endDate < formData.startDate) {
+      setErrors((prev) => (
+        {
+          ...prev,
+          validEndDate: true,
+        }
+      ));
+      endDateInputRef.current.focus();
+      endDateInputRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+      return false;
+    }
+    if (formData.description === "") {
+      setErrors((prev) => (
+        {
+          ...prev,
+          description: true,
+        }
+      ));
+      descriptionInputRef.current.focus();
+      descriptionInputRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+      return false;
+    }
+    if (imageInputRef.current.files.length === 0) {
+      setErrors((prev) => (
+        {
+          ...prev,
+          image: true,
+        }
+      ));
+      imageInputRef.current.focus();
+      return false;
+    }
+    if (formData.level === "") {
+      setErrors((prev) => (
+        {
+          ...prev,
+          level: true,
+        }
+      ));
+      selectInputRef.current.focus();
+      selectInputRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+      return false;
+    }
+    return true;
+  };
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    if (formData.endDate < formData.startDate) {
-      endDateInputRef.current.focus();
-      return;
-    }
+    const validate = validationSchema();
+    if (!validate) return;
     let challengesTemp;
     let localData = JSON.parse(localStorage.getItem("challengeList"));
     if (!localData) localData = [];
@@ -89,8 +205,9 @@ const Form = () => {
                   name="title"
                   value={formData.title}
                   onChange={onChangeHandler}
-                  required
+                  ref={titleInputRef}
                 />
+                {errors.title && <small>Challenge name is required !</small>}
               </label>
             </div>
             <div className="form_input">
@@ -102,8 +219,9 @@ const Form = () => {
                   name="startDate"
                   value={formData.startDate}
                   onChange={onChangeHandler}
-                  required
+                  ref={startDateInputRef}
                 />
+                {errors.startDate && <small>Start date is required !</small>}
               </label>
             </div>
             <div className="form_input">
@@ -115,9 +233,10 @@ const Form = () => {
                   name="endDate"
                   value={formData.endDate}
                   onChange={onChangeHandler}
-                  required
                   ref={endDateInputRef}
                 />
+                {errors.endDate && <small>End date is required !</small>}
+                {errors.validEndDate && <small>End date should be greater than start date !</small>}
               </label>
             </div>
           </div>
@@ -129,8 +248,9 @@ const Form = () => {
                 name="description"
                 value={formData.description}
                 onChange={onChangeHandler}
-                required
+                ref={descriptionInputRef}
               />
+              {errors.description && <small>Description is required !</small>}
             </label>
           </div>
           <div className="form_upload">
@@ -144,9 +264,10 @@ const Form = () => {
                 name="upload"
                 accept="image/*"
                 onChange={onUploadHandler}
-                required
+                ref={imageInputRef}
               />
             </label>
+            {errors.image && <small>Image is required !</small>}
           </div>
           <div className="form_select">
             <label className="label" htmlFor="level">
@@ -156,12 +277,15 @@ const Form = () => {
                 name="level"
                 value={formData.level}
                 onChange={onChangeHandler}
+                ref={selectInputRef}
               >
+                <option value="" disabled hidden>Select Level</option>
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
               </select>
             </label>
+            {errors.level && <small>Level is required !</small>}
           </div>
           <button className="form_action" type="submit">
             {!id ? "Create Challenge" : "Save Changes"}

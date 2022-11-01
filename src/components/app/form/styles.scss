@@ -16,7 +16,6 @@
     .label {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
       font-family: $inter-font-weight-500;
       font-size: 1rem;
       line-height: 1.25rem;
@@ -35,11 +34,17 @@
         width: 28rem;
         padding: 0.625rem 1.25rem;
         color: #444444;
+        margin-top: 1rem;
       }
 
-      input:required:focus {
-        border: 1px solid red;
+      input:focus {
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        border: 1px solid rgba(81, 203, 238, 1);
         outline: none;
+      }
+
+      small {
+        color: red;
       }
 
       input[type="datetime-local"]::-webkit-calendar-picker-indicator {
@@ -64,11 +69,17 @@
         height: 15.75rem;
         padding: 1.25rem;
         color: #444444;
+        margin-top: 1rem;
       }
 
-      textarea:required:focus {
-        border: 1px solid red;
+      textarea:focus {
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        border: 1px solid rgba(81, 203, 238, 1);
         outline: none;
+      }
+
+      small {
+        color: red;
       }
     }
 
@@ -82,6 +93,10 @@
       input[type="file"] {
         opacity: 0;
         height: 1px;
+      }
+
+      small {
+        color: red;
       }
 
       label {
@@ -119,6 +134,13 @@
         background-color: #F4F4F4;
       }
 
+      // To Style parent when child is focused
+      label:focus-within {
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        border: 1px solid rgba(81, 203, 238, 1);
+        outline: none;
+      }
+
       .img_noPreview {
         display: none;
       }
@@ -146,6 +168,17 @@
         color: #333333;
         appearance: none;
         background: transparent url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24' fill='%23000000'%3e%3cpath d='M12 15.825 5.55 9.35 7.4 7.5l4.6 4.6 4.6-4.6 1.85 1.85Z'/%3e%3c/svg%3e") no-repeat 12rem center;
+        margin-top: 1rem;
+      }
+
+      select:focus {
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        border: 1px solid rgba(81, 203, 238, 1);
+        outline: none;
+      }
+
+      small {
+        color: red;
       }
     }
 
